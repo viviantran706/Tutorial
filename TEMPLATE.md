@@ -1,9 +1,10 @@
 ---
-title: My Super Awesome Tutorial
-date: 1970-01-01
+title: Vegetation Protection Unit
+date: 2024-12-02
 authors:
-  - name: John Doe
-  - name: Mary Jane
+  - name: Vivian Tran
+  - name: Akhil Kalakota
+  - name: Amdadul Haque
 ---
 
 ![relevant graphic or workshop logo](image/path)
