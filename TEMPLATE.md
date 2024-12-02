@@ -7,7 +7,7 @@ authors:
   - name: Amdadul Haque
 ---
 
-![relevant graphic or workshop logo]([image/path](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg/330px-Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg))
+![relevant graphic or workshop logo](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg/330px-Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg)
 
 ## Introduction
 
