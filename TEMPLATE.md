@@ -14,6 +14,9 @@ authors:
 Write a short section on what the tutorial is aiming to accomplish.
 What is the motivation behind the tutorial?
 What do you want readers to gain from the tutorial?
+This tutorial aims to demonstrate how to use an ESP board to create a responsive system that triggers strobe deterrents based on real-time animal detection through machine learning. It provides step-by-step instructions on integrating the ESP board with a machine learning model to classify animals and activate adaptive deterrents effectively. 
+
+The motivation for this project stems from a group member's experience with wildlife damaging their garden, leading to frustration and the need for a solution. This inspired the development of a system to safely and effectively prevent wildlife from ruining gardens, ensuring that plants and vegetation are protected without causing harm to the animals. The goal is to provide a practical tool for others facing similar challenges, combining technology and ethical practices to safeguard gardens from persistent wildlife interference. By the end of the tutorial, readers will have the knowledge and tools to create their own wildlife deterrent system to protect gardens effectively.
 
 ### Learning Objectives
 
