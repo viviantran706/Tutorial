@@ -65,7 +65,7 @@ Software Prerequisites:
 
 Hardware Prerequisites:
 | Component Name | Quanitity | Reference Sheet/Guides | 
-| ESP32 Board | --------- |
+|  ESP32 Board   | ---1----- |
 |                |           |
 |                |           |
 
