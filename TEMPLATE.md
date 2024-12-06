@@ -59,7 +59,23 @@ the participant may need.
 The following are stylistic examples of possible prerequisites,
 customize these for each workshop.
 
+Software Prerequisites:
+- Ardiuno ID, The Arduino IDE is a user-friendly platform for writing, uploading, and managing code on microcontroller boards like the ESP32. It includes libraries and tools to simplify development. It’s used to write and upload the code to the ESP32 for controlling hardware like motors and sensors.
+- MQTT, MQTT is a lightweight messaging protocol for IoT devices, enabling communication between the ESP32 and a remote server or client. We are using MQTT this is a way to send alerts or control the system remotely using Wi-Fi, MQTT facilitates reliable data exchange.
+
+Hardware Prerequisites:
+| Component Name | Quanitity | Reference Sheet/Guides | 
+| ESP32 Board | --------- |
+|                |           |
+|                |           |
+
 ### Required Downloads and Installations
+ESP32 Board Libraries
+What is it?
+The ESP32 board library provides the necessary files for programming and uploading code to the ESP32 using the Arduino IDE.
+Why do you need it?
+This ensures the Arduino IDE recognizes the ESP32 and provides the correct tools for compilation and uploading.
+Installation: Add the URL https://dl.espressif.com/dl/package_esp32_index.json in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
 
 List any required downloads and installations here.
 Make sure to include tutorials on how to install them.
