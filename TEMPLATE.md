@@ -66,7 +66,7 @@ Software Prerequisites:
 Hardware Prerequisites:
 | Component Name | Quanitity | Reference Sheet/Guides | 
 | -------------- | --------- | ---------------------- |
-|  ESP32 Board |1||[GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg) |
+|  ESP32 Board |1||[GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg) kou|
 |  Motor Sheild |1| |
 |  DC Motor |1| |
 |  9v Battery  |2| |
