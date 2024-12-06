@@ -36,13 +36,14 @@ This project demonstrates how to build a responsive wildlife deterrent system us
 
 We are using the ESP32 board because of its integrated Wi-Fi and Bluetooth capabilities, enabling seamless wireless connectivity for remote monitoring and control. Additionally, its versatile hardware features built-in GPIO pins, making it ideal for interfacing with sensors and outputs such as DC motors and LEDs. 
 Some other things that are commonly used is an Ardiuno, or a Rasberry Pi. 
+
 Using an Ardiuno:
  - Pros: Simple to program, low bar of entry, and widely supported by a community
  - Cons: No Bluetooth or WiFi; therefore would need additional hardware for the wirless connection
+   
 Using a Rasberry Pi:
  - Pros: More powerful, capable of running full machine model learning, and can support advance camera
- - Cons:
-   * * In the full project a Rasberry Pi 
+ - Cons: Higher cost, less sutitable for low-power
 
 ## Getting Started
 
