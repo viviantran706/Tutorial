@@ -66,13 +66,14 @@ Software Prerequisites:
 Hardware Prerequisites:
 | Component Name | Quanitity | Reference Sheet/Guides | 
 | -------------- | --------- | ---------------------- |
-|  ESP32 Board |1||
+|  ESP32 Board |1||![GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg) |
 |  Motor Sheild |1| |
 |  DC Motor |1| |
 |  9v Battery  |2| |
 |  Battery Connector  |2| |
 |  Bread Board  |1| |
 |  Wires (FF, FM, MM)  |10| |
+|  Bread Board Power Module  |1| |
 |  Speakers  |1| |
 
 ### Required Downloads and Installations
