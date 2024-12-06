@@ -25,11 +25,6 @@ The motivation for this project stems from a group member's experience with wild
 
 ### Background Information
 
-Describe your topic here. What does it do? Why do you use it?
-Are there other similar things to use? What are the pros and cons?
-Explain important concepts that are necessary to understand.
-Include (and cite if needed) any visuals that will help the audience understand.
-
 This project demonstrates how to build a responsive wildlife deterrent system using an ESP32 board. The system:
  - Activates adaptive deterrents, ultrasonic frqeucney, or water sprinklers, to safely discourage animals from damaging gardens or property.
  - Supports remote monitoring and control through Wi-Fi or MQTT for enhanced user interaction.
@@ -44,6 +39,11 @@ Using an Ardiuno:
 Using a Rasberry Pi:
  - Pros: More powerful, capable of running full machine model learning, and can support advance camera
  - Cons: Higher cost, less sutitable for low-power
+
+To understand and implement this system, it’s crucial to grasp the following concepts:
+ - Connecting and Powering an ESP32: How to safely power the ESP32 using batteries (e.g., Li-ion or LiPo) while ensuring compatibility with connected hardware like motors and LEDs.
+ - Convolution and Responsive Design: Programming event-driven responses (e.g., strobe lights) based on sensor inputs or ML predictions.
+ - Wireless Communication (Wi-Fi or MQTT): Setting up remote control and monitoring to receive alerts or adjust system behavior.
 
 ## Getting Started
 
