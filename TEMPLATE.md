@@ -65,9 +65,15 @@ Software Prerequisites:
 
 Hardware Prerequisites:
 | Component Name | Quanitity | Reference Sheet/Guides | 
-|  ESP32 Board   | ---1----- |
-|                |           |
-|                |           |
+| -------------- | --------- | ---------------------- |
+|  ESP32 Board |1||
+|  Motor Sheild |1| |
+|  DC Motor |1| |
+|  9v Battery  |2| |
+|  Battery Connector  |2| |
+|  Bread Board  |1| |
+|  Wires (FF, FM, MM)  |10| |
+|  Speakers  |1| |
 
 ### Required Downloads and Installations
 ESP32 Board Libraries
