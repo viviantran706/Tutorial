@@ -64,20 +64,20 @@ Software Prerequisites:
 - MQTT, MQTT is a lightweight messaging protocol for IoT devices, enabling communication between the ESP32 and a remote server or client. We are using MQTT this is a way to send alerts or control the system remotely using Wi-Fi, MQTT facilitates reliable data exchange.
 
 Hardware Prerequisites:
-| Component Name | Quanitity | Reference Sheet/Guides | 
-| -------------- | --------- | ---------------------- |
-|  ESP32 Board |1||[GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg) kou|
-|  Motor Sheild |1| |
-|  DC Motor |1| |
-|  9v Battery  |2| |
-|  Battery Connector  |2| |
-|  Bread Board  |1| |
-|  Wires (FF, FM, MM)  |10| |
-|  Bread Board Power Module  |1| |
-|  Speakers  |1| |
+| Component Name | Quanitity | 
+| -------------- | --------- | 
+|  ESP32 Board |1||
+|  Motor Sheild |1| 
+|  DC Motor |1| 
+|  9v Battery  |2| 
+|  Battery Connector  |2| 
+|  Bread Board  |1| 
+|  Wires (FF, FM, MM)  |10| 
+|  Bread Board Power Module  |1| 
+|  Speakers  |1| 
 
-[GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
-![GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
+
+![GPIO Guide ESP32 Board](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
 ### Required Downloads and Installations
 ESP32 Board Libraries
 What is it?
