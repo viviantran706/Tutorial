@@ -14,12 +14,14 @@ This tutorial aims to demonstrate how to use an ESP board to create a responsive
 
 The motivation for this project stems from a group member's experience with wildlife damaging their garden, leading to frustration and the need for a solution. This inspired the development of a system to safely and effectively prevent wildlife from ruining gardens, ensuring that plants and vegetation are protected without causing harm to the animals. The goal is to provide a practical tool for others facing similar challenges, combining technology and ethical practices to safeguard gardens from persistent wildlife interference. By the end of the tutorial, readers will have the knowledge and tools to create their own wildlife deterrent system to protect gardens effectively.
 
+
 ### Learning Objectives
 
 - Learn how to set up wireless communication (e.g., Wi-Fi or MQTT) on the ESP board for remote monitoring and control.
 - Understand how to trigger outputs like strobe lights, buzzers, or water sprinklers using the ESP board in response to detection events.
 - Learn how to write and organize code for running multiple tasks simultaneously (e.g., data collection, classification, and output triggering).
 
+*This project will not include a Rasberry Pi AI camera, that was orginally used in the full project, which was supported by a Rasbery Pi 4. This camera is the sensor to send information to the machine learning which activates the deterents. This tutorial is only on the ESP32 board that control the deterents and how wireless connects to a ccomputer or laptop.*
 
 ### Background Information
 
@@ -27,6 +29,20 @@ Describe your topic here. What does it do? Why do you use it?
 Are there other similar things to use? What are the pros and cons?
 Explain important concepts that are necessary to understand.
 Include (and cite if needed) any visuals that will help the audience understand.
+
+This project demonstrates how to build a responsive wildlife deterrent system using an ESP32 board. The system:
+ - Activates adaptive deterrents, ultrasonic frqeucney, or water sprinklers, to safely discourage animals from damaging gardens or property.
+ - Supports remote monitoring and control through Wi-Fi or MQTT for enhanced user interaction.
+
+We are using the ESP32 board because of its integrated Wi-Fi and Bluetooth capabilities, enabling seamless wireless connectivity for remote monitoring and control. Additionally, its versatile hardware features built-in GPIO pins, making it ideal for interfacing with sensors and outputs such as DC motors and LEDs. 
+Some other things that are commonly used is an Ardiuno, or a Rasberry Pi. 
+Using an Ardiuno:
+ - Pros: Simple to program, low bar of entry, and widely supported by a community
+ - Cons: No Bluetooth or WiFi; therefore would need additional hardware for the wirless connection
+Using a Rasberry Pi:
+ - Pros: More powerful, capable of running full machine model learning, and can support advance camera
+ - Cons:
+   * * In the full project a Rasberry Pi 
 
 ## Getting Started
 
