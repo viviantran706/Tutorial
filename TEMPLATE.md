@@ -76,6 +76,8 @@ Hardware Prerequisites:
 |  Bread Board Power Module  |1| |
 |  Speakers  |1| |
 
+[GPIO Guide](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
+
 ### Required Downloads and Installations
 ESP32 Board Libraries
 What is it?
