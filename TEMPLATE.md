@@ -68,16 +68,26 @@ Hardware Prerequisites:
 ![relevant graphic or workshop logo](https://ece-196.github.io/docs/assignments/spinning-and-blinking/arduino/images/motion-pinout.png)
 ![References Sheet for DC Motor](https://www.baldor.com/mvc/DownloadCenter/Files/9AKK107331)
 
-![Rferences Guide for Bread Board Power Module](https://handsontec.com/dataspecs/mb102-ps.pdf)
+![References Guide for Bread Board Power Module](https://handsontec.com/dataspecs/mb102-ps.pdf)
 
 ### Required Downloads and Installations
-Arduino IDE:
+Arduino IDE
+----
+Download:
 
-What is it?
-The Arduino IDE is a user-friendly platform for writing, uploading, and managing code on microcontroller boards like the ESP32. It includes libraries and tools to simplify development.
-Why do you need it?
-It’s used to write and upload the code to the ESP32 for controlling hardware like motors, LEDs, and sensors.
-Installation: Download the appropriate version for your operating system from here. Follow the installation instructions and install the ESP32 board library using the Additional Board Manager URLs feature.
+Visit the official Arduino website to download the IDE: 
+![Arduino IDE Download](https://www.bing.com/search?pglt=425&q=arduino+ide+download&cvid=c3fd347b12954317b5f4acd093cdf87d&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc5ODlqMGoxqAIAsAIA&FORM=ANNTA1&PC=ASTS)
+Installation Tutorial:
+Windows: Run the downloaded installer and follow the prompts. Be sure to allow USB driver installation.
+macOS: Drag the Arduino IDE file to the Applications folder.
+Linux: Extract the downloaded file and execute the install script via terminal (sudo ./install.sh).
+Setup ESP32 Board Library:
+Open Arduino IDE and navigate to File > Preferences.
+Paste the following URL into Additional Board Manager URLs:
+arduino
+Copy code
+<ins>https://dl.espressif.com/dl/package_esp32_index.json</ins>
+Go to Tools > Board > Board Manager, search for "ESP32," and click Install.
 
 ESP32 Board Libraries:
 
@@ -87,7 +97,7 @@ Why do you need it?
 This ensures the Arduino IDE recognizes the ESP32 and provides the correct tools for compilation and uploading.
 Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json** in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
 
-MQTT Broker (Optional for Remote Communication)
+MQTT Broker:
 What is it?
 MQTT is a lightweight messaging protocol for IoT devices, enabling communication between the ESP32 and a remote server or client.
 Why do you need it?
@@ -97,18 +107,7 @@ Installation: Install an MQTT broker like
  on your system. It is available for Windows, macOS, and Linux.
 
 
-List any required downloads and installations here.
-Make sure to include tutorials on how to install them.
-You can either make your own tutorials or include a link to them.
 
-### Required Components
-
-List your required hardware components and the quantities here.
-
-| Component Name | Quanitity |
-| -------------- | --------- |
-|                |           |
-|                |           |
 
 ### Required Tools and Equipment
 
