@@ -9,6 +9,7 @@ authors:
 
 ![relevant graphic or workshop logo](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg/330px-Squirrel%2C_Manyara_National_Park%2C_Tanzania_%282010%29.jpg)
 
+
 ## Introduction
 This tutorial aims to demonstrate how to use an ESP board to create a responsive system that triggers strobe deterrents based on real-time animal detection through machine learning. It provides step-by-step instructions on integrating the ESP board with a machine learning model to classify animals and activate adaptive deterrents effectively. 
 
@@ -78,6 +79,12 @@ Hardware Prerequisites:
 
 
 ![GPIO Guide ESP32 Board](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
+![relevant graphic or workshop logo](https://ece-196.github.io/docs/assignments/spinning-and-blinking/arduino/images/motion-pinout.png)
+![relevant graphic or workshop logo](https://www.baldor.com/mvc/DownloadCenter/Files/9AKK107331)
+![relevant graphic or workshop logo](https://handsontec.com/dataspecs/mb102-ps.pdf)
+![relevant graphic or workshop logo]()
+![relevant graphic or workshop logo]()
+
 ### Required Downloads and Installations
 ESP32 Board Libraries
 What is it?
