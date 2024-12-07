@@ -73,10 +73,10 @@ Hardware Prerequisites:
 ### Required Downloads and Installations
 Arduino IDE
 ----
-`Download:
-Visit the official Arduino website to download the IDE: 
+Download: Visit the official Arduino website to download the IDE: 
 ![Arduino IDE Download](https://www.bing.com/search?pglt=425&q=arduino+ide+download&cvid=c3fd347b12954317b5f4acd093cdf87d&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc5ODlqMGoxqAIAsAIA&FORM=ANNTA1&PC=ASTS)
-Installation Tutorial:
+
+#### Installation Tutorial:
 Windows: Run the downloaded installer and follow the prompts. Be sure to allow USB driver installation.
 macOS: Drag the Arduino IDE file to the Applications folder.
 Linux: Extract the downloaded file and execute the install script via terminal (sudo ./install.sh).
@@ -86,9 +86,10 @@ Paste the following URL into Additional Board Manager URLs:
 arduino
 Copy code
 <ins>https://dl.espressif.com/dl/package_esp32_index.json</ins>
-Go to Tools > Board > Board Manager, search for "ESP32," and click Install.`
+Go to Tools > Board > Board Manager, search for "ESP32," and click Install.
 
-ESP32 Board Libraries:
+
+#### ESP32 Board Libraries:
 
 What is it?
 The ESP32 board library provides the necessary files for programming and uploading code to the ESP32 using the Arduino IDE.
@@ -96,14 +97,32 @@ Why do you need it?
 This ensures the Arduino IDE recognizes the ESP32 and provides the correct tools for compilation and uploading.
 Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json** in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
 
-MQTT Broker:
-What is it?
-MQTT is a lightweight messaging protocol for IoT devices, enabling communication between the ESP32 and a remote server or client.
-Why do you need it?
-To send alerts or control the system remotely using Wi-Fi, MQTT facilitates reliable data exchange.
-Installation: Install an MQTT broker like 
+#### MQTT Broker
+Download:
+Install 
 ![Mosquitto](https://mosquitto.org/)
- on your system. It is available for Windows, macOS, and Linux.
+a popular MQTT broker: Mosquitto Downloads.
+Installation Tutorial:
+Windows: Download the installer, run it, and follow the instructions.
+macOS: Install using Homebrew:
+bash
+Copy code
+brew install mosquitto
+Linux: Use your package manager:
+bash
+Copy code
+
+`sudo apt install mosquitto`
+
+Start the Broker:
+Open a terminal and type:
+
+`bash`
+
+Copy code
+
+`mosquitto`
+
 
 
 
