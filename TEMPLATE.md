@@ -170,18 +170,99 @@ Troubleshoot Common Issues:
 
 ### Background Information
 
-Give a brief explanation of the technical skills learned/needed
-in this challenge. There is no need to go into detail as a
-separation document should be prepared to explain more in depth
-about the technical skills
+In this challenge, you will develop and apply the following technical skills:
+
+ - Circuit Assembly: Learn how to connect a DC motor, motor driver, and ESP32 board into a functional circuit.
+ - Motor Control Programming: Use PWM (Pulse Width Modulation) and GPIO pins to control motor speed and direction through code.
+ - Integration and Testing: Link motor activation to system events (e.g., animal detection) and simulate operations to ensure functionality.
+ - Debugging and Troubleshooting: Diagnose common issues like wiring errors, incorrect motor driver connections, or software misconfigurations.
+ - These skills are fundamental for creating systems that respond to environmental triggers using physical components like motors.
 
 ### Components
 
-- List the components needed in this challenge
+| Component Name | Description | 
+| -------------- | --------- | 
+| ESP32 Board | Microcontroller to control the motor based on detection events. |
+| DC Motor | Powers the water sprayer or other mechanical deterrents.|
+| DC Motor Sheild | Interfaces between the ESP32 and the DC motor, providing speed and direction control. |
+| 9v Batteries | Provides power to the motor and ESP32. |
+| Breadboard | Allows for easy prototyping of the circuit without soldering. |
+| 3D Waterproof Enclosure | 	(Optional) Protects the components from water damage during operation
+
 
 ### Instructional
 
-Teach the contents of this section
+1. Assemble the Circuit
+   
+Set up the motor driver:
+
+ - Connect the DC motor terminals to the motor output pins on the L298N driver (OUT1 and OUT2).
+ - Connect the motor driver’s power input (VCC and GND) to the battery terminals. Ensure the motor driver can handle the motor's voltage.
+ - Attach the motor driver's control pins (e.g., IN1 and IN2) to GPIO pins on the ESP32.
+
+Power the ESP32:
+
+ - Connect the ESP32 to the battery or an external power source via USB. Ensure the voltage matches the ESP32's requirements (typically 3.3V or 5V).
+   
+Wiring the Breadboard:
+
+ - Use jumper wires to link the motor driver, ESP32, and motor through the breadboard for easy adjustments.
+
+   
+2. Write and Upload the Code
+Set up the Arduino IDE:
+
+Ensure the ESP32 board is added to the IDE. Install necessary libraries for PWM control.
+Define GPIO pins for the motor driver control (e.g., IN1 and IN2).
+Write the code:
+
+Use PWM to control the motor speed:
+```
+int motorPin1 = 26; // Motor driver IN1
+int motorPin2 = 27; // Motor driver IN2
+int enablePin = 25; // PWM pin for speed control
+
+void setup() {
+    pinMode(motorPin1, OUTPUT);
+    pinMode(motorPin2, OUTPUT);
+    pinMode(enablePin, OUTPUT);
+}
+
+void loop() {
+    // Turn motor ON
+    digitalWrite(motorPin1, HIGH);
+    digitalWrite(motorPin2, LOW);
+    analogWrite(enablePin, 128); // 50% speed
+
+    delay(5000); // Run for 5 seconds
+
+    // Turn motor OFF
+    digitalWrite(motorPin1, LOW);
+    digitalWrite(motorPin2, LOW);
+    analogWrite(enablePin, 0);
+
+    delay(5000); // Pause for 5 seconds
+}
+```
+Upload the code:
+
+Connect the ESP32 to your computer, select the correct port, and upload the code via the Arduino IDE.
+3. Test the System
+Power the setup using the battery.
+Observe the motor's behavior:
+Verify the motor turns on and off as programmed.
+Adjust the speed in the code (modify analogWrite() values) if needed.
+4. Link to Detection Events
+Modify the code to integrate with the detection logic. Replace the manual motor control logic with a condition triggered by the detection system:
+
+cpp
+Copy code
+if (animalDetected) {
+    digitalWrite(motorPin1, HIGH);
+    digitalWrite(motorPin2, LOW);
+    analogWrite(enablePin, 255); // Full speed
+}
+
 
 ## Example
 
