@@ -73,8 +73,7 @@ Hardware Prerequisites:
 ### Required Downloads and Installations
 Arduino IDE
 ----
-Download:
-
+`Download:
 Visit the official Arduino website to download the IDE: 
 ![Arduino IDE Download](https://www.bing.com/search?pglt=425&q=arduino+ide+download&cvid=c3fd347b12954317b5f4acd093cdf87d&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc5ODlqMGoxqAIAsAIA&FORM=ANNTA1&PC=ASTS)
 Installation Tutorial:
@@ -87,7 +86,7 @@ Paste the following URL into Additional Board Manager URLs:
 arduino
 Copy code
 <ins>https://dl.espressif.com/dl/package_esp32_index.json</ins>
-Go to Tools > Board > Board Manager, search for "ESP32," and click Install.
+Go to Tools > Board > Board Manager, search for "ESP32," and click Install.`
 
 ESP32 Board Libraries:
 
