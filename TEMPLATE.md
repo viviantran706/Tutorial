@@ -138,6 +138,7 @@ Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json
 | Wire Stripper/Cutter | Used for preparing jumper wires or connecting power leads. |
 
 | Optional Tools | Purpose |
+|----------------|---------|
 |3D Printer |For creating custom enclosures or mounting brackets. | 
 | Hot Glue Gun | To secure components to the breadboard or enclosures. |
 
