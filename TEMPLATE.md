@@ -103,18 +103,17 @@ Windows: Download the installer, run it, and follow the instructions.
 
 macOS: Install using Homebrew:
 
-`brew install mosquitto`
+```brew install mosquitto```
 
 Linux: Use your package manager:
 
 
-`sudo apt install mosquitto`
+```sudo apt install mosquitto```
 
 Start the Broker:
 Open a terminal and type:
 
-
-`mosquitto`
+```mosquitto```
 
 
 #### ESP32 Board Libraries:
@@ -187,7 +186,7 @@ In this challenge, you will develop and apply the following technical skills:
 | DC Motor Sheild | Interfaces between the ESP32 and the DC motor, providing speed and direction control. |
 | 9v Batteries | Provides power to the motor and ESP32. |
 | Breadboard | Allows for easy prototyping of the circuit without soldering. |
-| 3D Waterproof Enclosure | 	(Optional) Protects the components from water damage during operation
+| 3D Waterproof Enclosure | 	(Optional) Protects the components from water damage during operation |
 
 
 ### Instructional
@@ -218,50 +217,253 @@ Write the code:
 
 Use PWM to control the motor speed:
 ```
-int motorPin1 = 26; // Motor driver IN1
-int motorPin2 = 27; // Motor driver IN2
-int enablePin = 25; // PWM pin for speed control
+#define LED 2          // Define the pin for the LED (optional)
+#define MTR_HI 5       // Pin to control the high side of the motor
+#define MTR_LO 18      // Pin to control the low side of the motor
+
+int base_value = 0;                 // PWM value starts at 0
+int step_value_for_base_value = 10; // Faster ramp-up
+int time_for_delay = 5;             // Reduced delay for faster acceleration
+
 
 void setup() {
-    pinMode(motorPin1, OUTPUT);
-    pinMode(motorPin2, OUTPUT);
-    pinMode(enablePin, OUTPUT);
+// Initialize pins for motor and led
+  pinMode(LED, OUTPUT);
+  pinMode(MTR_HI, OUTPUT);
+  pinMode(MTR_LO, OUTPUT);
+
+  analogWrite(MTR_HI, 0);
+  analogWrite(MTR_LO, 0);
 }
 
 void loop() {
-    // Turn motor ON
-    digitalWrite(motorPin1, HIGH);
-    digitalWrite(motorPin2, LOW);
-    analogWrite(enablePin, 128); // 50% speed
+// LED Blinking
+  digitalWrite(LED, HIGH); // Turn the LED on
+  delay(150);
+  digitalWrite(LED, LOW);  // Turn the LED off
+  delay(150);
 
-    delay(5000); // Run for 5 seconds
+ // Run the motor at full speed forward to squeeze the bottle
+  analogWrite(MTR_HI, 255); // Immediate full speed
+  analogWrite(MTR_LO, 0);   // Ensure motor spins in one direction
+  delay(1000);              // Keep squeezing for 1 second
 
-    // Turn motor OFF
-    digitalWrite(motorPin1, LOW);
-    digitalWrite(motorPin2, LOW);
-    analogWrite(enablePin, 0);
+  // Stop the motor to let it reset
+  analogWrite(MTR_HI, 0);
+  analogWrite(MTR_LO, 0);
+  delay(1000);
 
-    delay(5000); // Pause for 5 seconds
+ // Smooth acceleration to full speed
+  while (base_value <= 255) {
+    analogWrite(MTR_HI, base_value);
+    analogWrite(MTR_LO, 0);
+    base_value += step_value_for_base_value;
+    delay(time_for_delay);
+  }
+
+  // Smooth deceleration to stop
+  while (base_value >= 0) {
+    analogWrite(MTR_HI, base_value);
+    analogWrite(MTR_LO, 0);
+    base_value -= step_value_for_base_value;
+    delay(time_for_delay);
+  }
+
 }
 ```
 Upload the code:
+ - Connect the ESP32 to your computer, select the correct port, and upload the code via the Arduino IDE.
+![image](https://github.com/user-attachments/assets/95855d85-f18e-4c8e-94de-9d25779158b5)
+*TIP: Make sure it is the apporiate board!!!*
 
-Connect the ESP32 to your computer, select the correct port, and upload the code via the Arduino IDE.
+   
 3. Test the System
 Power the setup using the battery.
 Observe the motor's behavior:
 Verify the motor turns on and off as programmed.
 Adjust the speed in the code (modify analogWrite() values) if needed.
-4. Link to Detection Events
+
+5. Link to Detection Events
+   
 Modify the code to integrate with the detection logic. Replace the manual motor control logic with a condition triggered by the detection system:
 
-cpp
-Copy code
-if (animalDetected) {
-    digitalWrite(motorPin1, HIGH);
-    digitalWrite(motorPin2, LOW);
-    analogWrite(enablePin, 255); // Full speed
+```
+void sprayWater() {
+    digitalWrite(LED_PIN, HIGH); // Turn on LED during spray
+    analogWrite(MTR_HI, 255);    // Activate motor for water spray
+    analogWrite(MTR_LO, 0);
+    delay(5000);                 // Spray for 5 seconds
+    analogWrite(MTR_HI, 0);      // Stop motor
+    analogWrite(MTR_LO, 0);
+    digitalWrite(LED_PIN, LOW);  // Turn off LED after spray
+```
+In Void Loop:
+```
+while (squirrelDetected) {
+  playTone(20000, 5000);
+  delay(2000);
+  sprayWater();
+  delay(2000);
 }
+```
+
+## Part 02: MQTT Wireless Setup Between Computer and ESP32
+
+### Introduction
+
+In this section, we will teach you how to set up MQTT (Message Queuing Telemetry Transport) for wireless communication between an ESP32 and a computer. You’ll learn how to configure an MQTT broker, program the ESP32 to publish and subscribe to messages, and use an MQTT client on your computer to send and receive data. This forms the backbone for remote monitoring and control of IoT devices like the wildlife deterrent system.
+
+
+### Objective
+
+By the end of this section, you will be able to:
+
+Understand MQTT Basics:
+
+ - Learn the role of MQTT in IoT systems, including brokers, publishers, and subscribers.
+   
+Set Up an MQTT Broker:
+
+- Install and configure an MQTT broker (e.g., Mosquitto) on your computer to manage communication between devices.
+  
+Program the ESP32 for MQTT:
+
+ - Write code to enable the ESP32 to publish and subscribe to topics.
+   
+Test the Setup:
+
+ - Use an MQTT client to simulate data exchange and verify communication.
+
+Integrate MQTT with System Events:
+
+ - Link the ESP32's responses (e.g., deterrent activation) to commands or messages received via MQTT.
+
+
+### Background Information
+
+In this challenge, participants will develop the following technical skills:
+
+ - Wireless Communication: Understanding how MQTT enables lightweight, efficient communication between devices.
+ - ESP32 Networking: Configuring the ESP32 for Wi-Fi and connecting it to an MQTT broker.
+ - Message Handling: Learning how to publish sensor data and subscribe to commands.
+ - Debugging Tools: Using MQTT clients (e.g., MQTT Explorer) to test and troubleshoot the system.
+These skills are essential for building scalable IoT systems where devices need to communicate in real time.
+
+### Components
+
+| Component Name | Description | 
+| -------------- | --------- | 
+| ESP32 Board | Microcontroller with Wi-Fi for MQTT communication. |
+| Computer (Windows, macOS, or Linux) | Runs the MQTT broker and client for monitoring and testing. |
+| Wi-Fi Network | Required for connecting the ESP32 and computer to the same network. |
+
+### Instructional
+
+1. Set Up the MQTT Broker
+   
+Install Mosquitto Broker:
+
+Download Mosquitto from here.
+Follow the installation guide for your operating system:
+Windows: Run the installer and ensure the Mosquitto service is enabled.
+macOS: Use Homebrew to install:
+```
+brew install mosquitto
+```
+Linux: Use your package manager:
+
+```sudo apt install mosquitto```
+
+Start the Broker:
+
+Open a terminal or command prompt and start Mosquitto:
+```mosquitto```
+
+By default, the broker will run on localhost (127.0.0.1) and port 1883.
+
+2. Install an MQTT Client on Your Computer
+Use an MQTT client like MQTT Explorer or the command-line tool mosquitto_sub and mosquitto_pub.
+Test the broker by publishing and subscribing to messages:
+
+Subscribe to a topic:
+
+```mosquitto_sub -h localhost -t test/topic```
+Publish a message:
+```
+mosquitto_pub -h localhost -t test/topic -m "Hello, MQTT!"
+```
+3. Configure the ESP32 for MQTT
+Install the PubSubClient Library:
+
+Open the Arduino IDE and go to Sketch > Include Library > Manage Libraries.
+Search for "PubSubClient" and install it.
+Write the ESP32 Code:
+
+Use the following example to connect the ESP32 to the MQTT broker and publish/subscribe to messages:
+```
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+const char* ssid = "YourWiFiSSID";
+const char* password = "YourWiFiPassword";
+const char* mqttServer = "192.168.1.100"; // Replace with your broker's IP
+const int mqttPort = 1883;
+const char* mqttTopic = "test/topic";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void setup() {
+    Serial.begin(115200);
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.println("Connecting to WiFi...");
+    }
+    Serial.println("Connected to WiFi");
+
+    client.setServer(mqttServer, mqttPort);
+    while (!client.connected()) {
+        if (client.connect("ESP32Client")) {
+            Serial.println("Connected to MQTT Broker!");
+        } else {
+            Serial.print("Failed with state ");
+            Serial.println(client.state());
+            delay(2000);
+        }
+    }
+    client.subscribe(mqttTopic);
+}
+
+void loop() {
+    client.loop();  
+    if (client.connected()) { //This is where we replace this code for the deterrent but for now we leave it like this to test if the connection works
+        client.publish(mqttTopic, "ESP32 says hello!");
+    }
+    delay(5000);
+}
+```
+Upload the Code:
+ - Connect the ESP32 to your computer and upload the code using the Arduino IDE.
+
+4. Test the System
+   
+- Open the MQTT client on your computer and subscribe to test/topic.
+  
+ - Observe messages sent by the ESP32.
+   
+ - Publish a message from the client and observe the ESP32's response.
+   
+6. Integrate with Detection Logic
+Modify the ESP32 code to publish and subscribe to topics related to detection events. For example:
+
+Publish: When an animal is detected:
+
+```client.publish("deterrent/alert", "Animal detected!");```
+ - Subscribe: To control the deterrent system remotely:
+
+``` client.subscribe("deterrent/control");``` 
+This section sets up the foundation for wireless communication, enabling participants to build a responsive system controlled remotely via MQTT.
 
 
 ## Example
