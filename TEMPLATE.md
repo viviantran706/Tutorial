@@ -67,6 +67,7 @@ Hardware Prerequisites:
 ![GPIO Guide ESP32 Board](https://www.electronicwings.com/storage/PlatformSection/TopicContent/424/icon/ESP32%20GPIO%20Banner%20Image.jpg)
 ![relevant graphic or workshop logo](https://ece-196.github.io/docs/assignments/spinning-and-blinking/arduino/images/motion-pinout.png)
 ![References Sheet for DC Motor](https://www.baldor.com/mvc/DownloadCenter/Files/9AKK107331)
+
 ![Rferences Guide for Bread Board Power Module](https://handsontec.com/dataspecs/mb102-ps.pdf)
 
 ### Required Downloads and Installations
@@ -84,14 +85,16 @@ What is it?
 The ESP32 board library provides the necessary files for programming and uploading code to the ESP32 using the Arduino IDE.
 Why do you need it?
 This ensures the Arduino IDE recognizes the ESP32 and provides the correct tools for compilation and uploading.
-Installation: Add the URL https://dl.espressif.com/dl/package_esp32_index.json in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
+Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json** in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
 
 MQTT Broker (Optional for Remote Communication)
 What is it?
 MQTT is a lightweight messaging protocol for IoT devices, enabling communication between the ESP32 and a remote server or client.
 Why do you need it?
 To send alerts or control the system remotely using Wi-Fi, MQTT facilitates reliable data exchange.
-Installation: Install an MQTT broker like Mosquitto on your system. It is available for Windows, macOS, and Linux.
+Installation: Install an MQTT broker like 
+![Mosquitto](https://mosquitto.org/)
+ on your system. It is available for Windows, macOS, and Linux.
 
 
 List any required downloads and installations here.
