@@ -71,12 +71,13 @@ Hardware Prerequisites:
 ![References Guide for Bread Board Power Module](https://handsontec.com/dataspecs/mb102-ps.pdf)
 
 ### Required Downloads and Installations
-Arduino IDE
-----
+#### Arduino IDE
+
 Download: Visit the official Arduino website to download the IDE: 
 ![Arduino IDE Download](https://www.bing.com/search?pglt=425&q=arduino+ide+download&cvid=c3fd347b12954317b5f4acd093cdf87d&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc5ODlqMGoxqAIAsAIA&FORM=ANNTA1&PC=ASTS)
 
-#### Installation Tutorial:
+Installation Tutorial:
+
 Windows: Run the downloaded installer and follow the prompts. Be sure to allow USB driver installation.
 macOS: Drag the Arduino IDE file to the Applications folder.
 Linux: Extract the downloaded file and execute the install script via terminal (sudo ./install.sh).
@@ -89,6 +90,33 @@ Copy code
 Go to Tools > Board > Board Manager, search for "ESP32," and click Install.
 
 
+
+
+#### MQTT Broker
+DownloadInstall 
+![Mosquitto](https://mosquitto.org/)
+a popular MQTT broker: Mosquitto Downloads.
+
+Installation Tutorial:
+
+Windows: Download the installer, run it, and follow the instructions.
+
+macOS: Install using Homebrew:
+
+`brew install mosquitto`
+
+Linux: Use your package manager:
+
+
+`sudo apt install mosquitto`
+
+Start the Broker:
+Open a terminal and type:
+
+
+`mosquitto`
+
+
 #### ESP32 Board Libraries:
 
 What is it?
@@ -97,40 +125,22 @@ Why do you need it?
 This ensures the Arduino IDE recognizes the ESP32 and provides the correct tools for compilation and uploading.
 Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json** in the Arduino IDE's Board Manager settings, then search for and install the ESP32 library.
 
-#### MQTT Broker
-Download:
-Install 
-![Mosquitto](https://mosquitto.org/)
-a popular MQTT broker: Mosquitto Downloads.
-Installation Tutorial:
-Windows: Download the installer, run it, and follow the instructions.
-macOS: Install using Homebrew:
-bash
-Copy code
-brew install mosquitto
-Linux: Use your package manager:
-bash
-Copy code
-
-`sudo apt install mosquitto`
-
-Start the Broker:
-Open a terminal and type:
-
-`bash`
-
-Copy code
-
-`mosquitto`
-
-
-
 
 
 ### Required Tools and Equipment
 
-List any tools and equipment you need here.
-(Ex, computer, soldering station, etc.)
+| Component Name | Purpose | 
+| -------------- | --------- | 
+| Computer (Windows, macOS, or Linux)| Used for writing, uploading, and debugging code on the ESP32 board. |
+|Soldering Station | Required for permanent connections, such as attaching wires to components or headers to the ESP32.|
+|Screwdriver Set | For assembling or securing hardware components, such as mounting the ESP32 or motors. |
+| Multimeter  | To measure voltage, current, and continuity for debugging electrical connections. |
+| Wire Stripper/Cutter | Used for preparing jumper wires or connecting power leads. |
+
+| Optional Tools | Purpose |
+|3D Printer |For creating custom enclosures or mounting brackets. | 
+| Hot Glue Gun | To secure components to the breadboard or enclosures. |
+
 
 ## Part 01: Name
 
