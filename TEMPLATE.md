@@ -132,8 +132,8 @@ Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json
 | Component Name | Purpose | 
 | -------------- | --------- | 
 | Computer (Windows, macOS, or Linux)| Used for writing, uploading, and debugging code on the ESP32 board. |
-|Soldering Station | Required for permanent connections, such as attaching wires to components or headers to the ESP32.|
-|Screwdriver Set | For assembling or securing hardware components, such as mounting the ESP32 or motors. |
+| Soldering Station | Required for permanent connections, such as attaching wires to components or headers to the ESP32.|
+| Screwdriver Set | For assembling or securing hardware components, such as mounting the ESP32 or motors. |
 | Multimeter  | To measure voltage, current, and continuity for debugging electrical connections. |
 | Wire Stripper/Cutter | Used for preparing jumper wires or connecting power leads. |
 
