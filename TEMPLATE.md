@@ -103,17 +103,23 @@ Windows: Download the installer, run it, and follow the instructions.
 
 macOS: Install using Homebrew:
 
-```brew install mosquitto```
+```
+brew install mosquitto
+```
 
 Linux: Use your package manager:
 
 
-```sudo apt install mosquitto```
+```
+sudo apt install mosquitto
+```
 
 Start the Broker:
 Open a terminal and type:
 
-```mosquitto```
+```
+mosquitto
+```
 
 
 #### ESP32 Board Libraries:
@@ -307,6 +313,76 @@ while (squirrelDetected) {
 }
 ```
 
+## Example
+
+### Introduction
+
+In this example, we demonstrate the use of a DC motor and ESP32 to create a water-based wildlife deterrent. This example showcases how to integrate hardware, such as a motor driver and a DC motor, with software logic to simulate a water-spraying deterrent triggered by animal detection. The ESP32 controls the motor's speed and direction and integrates with detection events, such as recognizing a squirrel near the garden.
+
+### Example
+
+The system includes:
+
+- Hardware: An ESP32 board, a DC motor, a motor driver (L298N), and a power source (9V batteries).
+- Software: Code for PWM motor control, GPIO pin management, and logic for event-driven water spraying.
+
+Step-by-Step Implementation
+
+Circuit Assembly:
+- The DC motor is connected to the L298N motor driver's OUT1 and OUT2 pins.
+- The motor driver's control pins (IN1, IN2) are connected to ESP32 GPIO pins 5 and 18, respectively.
+- A 9V battery powers the motor, and the ESP32 is powered via USB.
+  
+Code Functionality:
+
+ - The motor operates in a controlled manner, squeezing a water bottle or activating a spray mechanism for deterrence.
+- The code includes LED blinking for visual feedback, motor acceleration and deceleration, and response to detection events.
+  
+Trigger Mechanism:
+
+- The sprayWater() function activates the motor for 5 seconds when an animal is detected (squirrelDetected).
+- The loop continuously checks for the detection condition and triggers deterrent actions.
+
+
+### Analysis
+
+Circuit Integration
+Hardware Explanation:
+- The L298N motor driver bridges the ESP32 and the DC motor, allowing the low-power GPIO pins to control the high-power motor.
+- The breadboard simplifies connections, and the 9V battery provides sufficient power for the motor.
+
+Motor Control with PWM
+PWM Usage:
+- The analogWrite() function generates a PWM signal to control motor speed.
+- Smooth acceleration and deceleration are implemented using incremental steps of the base_value.
+Analysis:
+- PWM ensures energy-efficient control of motor speed and direction, which is critical for fine-tuned deterrent actions.
+  
+Detection Event Integration
+Triggering Logic:
+- When squirrelDetected is true, the system activates the motor via the sprayWater() function.
+- The LED provides a visual indication during operation.
+Analysis:
+- The system’s responsiveness ensures that deterrent actions occur immediately after detection, optimizing the chances of repelling wildlife.
+4. Debugging and Testing
+- Observing motor behavior during test runs verifies that the hardware responds accurately to software commands.
+- Adjusting PWM values and delays fine-tunes motor performance for optimal deterrent operation.
+
+## Additional Resources
+
+### Useful links
+Useful Links:
+
+- ESP32 Pinout and Setup: ![ESP32 Pinout Guide](ESP32 Pinout Guide)
+- Motor Driver Guide: ![Motor Driver Control](https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/library-reference)
+- Arduino IDE Configuration for ESP32: ![Install ESP32 Board in Arduino IDE](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+- PWM Basics: ![Pulse Width Modulation](https://www.analogictips.com/pulse-width-modulation-pwm/)
+- Similar Project: ![Automatic Water Sprinkler with ESP32](https://www.bing.com/search?pglt=425&q=Automatic+Water+Sprinkler+with+ESP32&cvid=696243a79a5a46098173036a3245cfe7&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQcxODdqMGoxqAIAsAIA&PC=ASTS&FPIG=2B74F1855818474FB18C4BFF307E1949&first=11&FORM=PERE)
+These resources provide additional information to expand or troubleshoot the system and dive deeper into hardware and software principles.
+
+
+
+
 ## Part 02: MQTT Wireless Setup Between Computer and ESP32
 
 ### Introduction
@@ -372,12 +448,16 @@ brew install mosquitto
 ```
 Linux: Use your package manager:
 
-```sudo apt install mosquitto```
+```
+sudo apt install mosquitto
+```
 
 Start the Broker:
 
 Open a terminal or command prompt and start Mosquitto:
-```mosquitto```
+```
+mosquitto
+```
 
 By default, the broker will run on localhost (127.0.0.1) and port 1883.
 
@@ -387,7 +467,9 @@ Test the broker by publishing and subscribing to messages:
 
 Subscribe to a topic:
 
-```mosquitto_sub -h localhost -t test/topic```
+```
+mosquitto_sub -h localhost -t test/topic
+```
 Publish a message:
 ```
 mosquitto_pub -h localhost -t test/topic -m "Hello, MQTT!"
@@ -459,29 +541,84 @@ Modify the ESP32 code to publish and subscribe to topics related to detection ev
 
 Publish: When an animal is detected:
 
-```client.publish("deterrent/alert", "Animal detected!");```
+```
+client.publish("deterrent/alert", "Animal detected!");
+```
  - Subscribe: To control the deterrent system remotely:
 
-``` client.subscribe("deterrent/control");``` 
+``` 
+client.subscribe("deterrent/control");
+``` 
 This section sets up the foundation for wireless communication, enabling participants to build a responsive system controlled remotely via MQTT.
-
 
 ## Example
 
 ### Introduction
 
-Introduce the example that you are showing here.
+In this example, we demonstrate how to set up a simple MQTT-based communication system between an ESP32 board and a computer. The ESP32 will publish a message to an MQTT broker when a simulated event (e.g., animal detection) occurs and subscribe to commands sent from the computer to control a physical device (e.g., activating a deterrent). This example highlights the core principles of MQTT communication and its application in IoT projects.
+
 
 ### Example
+System Overview
 
-Present the example here. Include visuals to help better understanding
+Objective: Set up the ESP32 to send and receive messages via an MQTT broker running on a computer.
+
+
+Visual Workflow:
+
+ - ESP32 connects to a Wi-Fi network.
+ - The MQTT broker (e.g., Mosquitto) facilitates message exchange.
+ - The computer subscribes to a topic to monitor messages from the ESP32.
+ - The computer publishes commands to control the ESP32.
+
+Code Example
+
+The ESP32 is programmed to:
+
+ - Connect to Wi-Fi and the MQTT broker.
+ - Publish a message ("Animal detected!") when an event occurs.
+ - Subscribe to a control topic ("deterrent/control") to respond to incoming commands.
 
 ### Analysis
 
-Explain how the example used your tutorial topic. Give in-depth analysis of each part and show your understanding of the tutorial topic
-
+1. Wi-Fi Connection
+ - Explanation: The ESP32 connects to the specified Wi-Fi network using the WiFi.begin() function. This allows the ESP32 to communicate with the MQTT broker over the local network.
+ - Importance: Wi-Fi is essential for enabling wireless communication between devices.
+2. MQTT Broker and Topics
+ - Explanation: The broker (mqttServer) facilitates message exchanges between the ESP32 and the computer. Topics like "deterrent/alert" and "deterrent/control" are used to categorize messages.
+ - Importance: Topics help in organizing and filtering communication between devices.
+3. Publishing Messages
+ - Explanation: The ESP32 uses client.publish() to send a message ("Animal detected!") to the broker. This message can be viewed by any device subscribed to the topic "deterrent/alert".
+ - Importance: Publishing allows the ESP32 to notify the system of events.
+4. Subscribing to Topics
+ - Explanation: The ESP32 listens to the "deterrent/control" topic for incoming commands. When a message (e.g., "on") is received, it executes a corresponding action (e.g., activating a deterrent).
+ - Importance: Subscribing enables remote control of the ESP32.
+5. Callback Function
+- Explanation: The callback function processes incoming messages. In this example, it checks the topic and payload to determine the appropriate action.
+- Importance: The callback ensures the ESP32 responds dynamically to commands.
+  
 ## Additional Resources
+Useful Links
 
+MQTT Documentation: 
+![MQTT.org](https://mqtt.org/)
+
+Mosquitto Installation Guide: 
+![Random Nerd Tutorials - MQTT Broker](https://randomnerdtutorials.com/raspberry-pi-pico-w-mqtt-micropython/)
+
+ESP32 PubSubClient Library: ![GitHub - PubSubClient](https://github.com/knolleary/pubsubclient)
+
+Arduino IDE Setup for ESP32: ![Random Nerd Tutorials - ESP32](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+
+Similar Projects
+
+ESP32 MQTT Temperature Monitor: Monitor and Control IoT Devices
+
+Smart Home System with MQTT: Explore examples of home automation using MQTT for lighting and HVAC control.
+
+These resources and the example provided will enable participants to set up and test MQTT communication effectively, laying the groundwork for integrating it into more complex systems.
 ### Useful links
 
 List any sources you used, documentation, helpful examples, similar projects etc.
+
+
