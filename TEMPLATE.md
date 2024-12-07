@@ -143,15 +143,30 @@ Installation: Add the URL **https://dl.espressif.com/dl/package_esp32_index.json
 | Hot Glue Gun | To secure components to the breadboard or enclosures. |
 
 
-## Part 01: Name
+## Part 01: DC Moter (Water Deterent)
 
 ### Introduction
 
-Briefly introduce what  you are teaching in this section.
+In this section, we will guide you through the process of building and programming a water-based wildlife deterrent using a DC motor and the ESP32 board. You’ll learn how to set up the motor to drive a mechanical device (like a rotating water sprayer) and how to control it in response to real-time animal detection. This system combines hardware assembly and programming, resulting in a responsive and humane method to protect your garden or property.
 
 ### Objective
+By the end of this section, you will be able to:
 
-- List the learning objectives of this section
+Understand DC Motor Basics:
+
+ - Learn how a DC motor works and its applications in deterrent systems.
+Understand the role of motor drivers in controlling speed and direction.
+Assemble a Motor Control Circuit:
+ - Connect a DC motor to the ESP32 board using an L298N motor driver.
+Properly wire power sources, motors, and the control board.
+Program Motor Control:
+ - Write code to control the motor's speed and direction using the ESP32.
+Use PWM (Pulse Width Modulation) for speed control and GPIO pins for direction.
+Integrate the Motor into the System:
+ - Link motor activation to animal detection events.
+Simulate the system to test responsiveness and adjust parameters for optimal performance.
+Troubleshoot Common Issues:
+ - Learn how to diagnose and resolve hardware and software issues, such as motor stalling or incorrect connections.
 
 ### Background Information
 
